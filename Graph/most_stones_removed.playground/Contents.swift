@@ -34,19 +34,19 @@ class Solution {
         let dsu = DSU(m: m)
         var parent: [Int] = []
         var height: [Int] = []
-        for i in 0..<m {
+        for i in 0..<20000 {
             parent.append(i)
             height.append(0)
         }
         
-        for i in 0..<m {
-            for j in i+1..<m {
-                if A[i][0] == A[j][0] || A[i][1] == A[j][1] {
-                    dsu.Union(A: i, B: j, parent: &parent, height: &height)
-                }
-            }
+        for i in A{
+            dsu.Union(A: i[0], B: i[1]+10000, parent: &parent, height: &height)
         }
-        return m-dsu.count
+        var ans = Set<Int>()
+        for i in A {
+            ans.insert(dsu.find_root(A: i[0], parent: parent))
+        }
+        return m-ans.count
     }
 }
 var A = [[0, 0],
