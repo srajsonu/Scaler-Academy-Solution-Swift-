@@ -13,7 +13,7 @@ class Solution {
         return min_index
     }
     func Solve(A: Int, B: [[Int]], C: Int) -> [Int] {
-        var graph: [[Int]] = [[]]
+        let graph: [[Int]] = [[]]
         print(graph)
         return []
     }
